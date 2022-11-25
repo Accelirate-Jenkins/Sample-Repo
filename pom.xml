@@ -85,9 +85,9 @@
 			<name>MuleSoft Releases Repository</name>
 			<layout>default</layout>
 			<url>https://repository.mulesoft.org/releases/</url>
-			<snapshots>
+<!-- 			<snapshots>
 				<enabled>false</enabled>
-			</snapshots>
+			</snapshots> -->
 		</pluginRepository>
 	</pluginRepositories>
 

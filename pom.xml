@@ -61,12 +61,6 @@
 			<artifactId>mule-http-connector</artifactId>
 			<version>1.7.2</version>
 			<classifier>mule-plugin</classifier>
-		</dependency>
-		<dependency>
-			<groupId>com.mulesoft.muleesb</groupId>
-			<artifactId>mule-core-ee</artifactId>
-			<version>4.4.0</version>
-			<scope>provided</scope>
 		</dependency>		
 	</dependencies>
 
@@ -82,12 +76,6 @@
 			<name>MuleSoft Releases Repository</name>
 			<url>https://repository.mulesoft.org/releases/</url>
 			<layout>default</layout>
-		</repository>
-		<repository>
-		   <id>mulesoft-snapshots</id>
-		   <name>MuleSoft Snapshots Repository</name>
-		   <url>http://repository.mulesoft.org/snapshots/</url>
-		   <layout>default</layout>
 		</repository>
 	</repositories>
 

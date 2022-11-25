@@ -1,12 +1,12 @@
 pipeline {
     agent any
     stages{
-        stage('Build App') {
+        stage('Build Application') {
             steps {
                 bat 'mvn clean install'
             }
         }
-        stage('Deploy App') {
+        stage('Deploy Application') {
             environment {
                 ANYPOINT_CREDENTIALS = credentials('anypoint.credentials')
             }

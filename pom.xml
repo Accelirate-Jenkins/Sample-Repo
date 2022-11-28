@@ -15,7 +15,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-		<app.runtime>4.4.0-20221026</app.runtime>
+		<app.runtime>4.4.0</app.runtime> <!-- 4.4.0-20221026 -->
 		<mule.maven.plugin.version>3.8.0</mule.maven.plugin.version>
 	</properties>
 
@@ -61,7 +61,7 @@
 			<artifactId>mule-http-connector</artifactId>
 			<version>1.7.2</version>
 			<classifier>mule-plugin</classifier>
-		</dependency>		
+		</dependency>
 	</dependencies>
 
 	<repositories>
@@ -85,23 +85,10 @@
 			<name>MuleSoft Releases Repository</name>
 			<layout>default</layout>
 			<url>https://repository.mulesoft.org/releases/</url>
-<!-- 			<snapshots>
+			<snapshots>
 				<enabled>false</enabled>
-			</snapshots> -->
+			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
 
 </project>
-
-<!--<repository>
-       <id>mulesoft-releases</id>
-       <name>MuleSoft Releases Repository</name>
-       <url>http://repository.mulesoft.org/releases/</url>
-       <layout>default</layout>
-   </repository>
-   <repository>
-       <id>mulesoft-snapshots</id>
-       <name>MuleSoft Snapshots Repository</name>
-       <url>http://repository.mulesoft.org/snapshots/</url>
-       <layout>default</layout>
-   </repository>-->

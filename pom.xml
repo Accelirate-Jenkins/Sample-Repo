@@ -63,33 +63,6 @@
 			<version>1.7.2</version>
 			<classifier>mule-plugin</classifier>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/com.mulesoft.mule.runtime/mule-core-ee -->
-		<dependency>
-			<groupId>com.mulesoft.mule.runtime</groupId>
-			<artifactId>mule-core-ee</artifactId>
-			<version>4.3.0-20220919</version>
-			<scope>provided</scope>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.mule.runtime/mule-module-artifact-activation -->
-		<dependency>
-			<groupId>org.mule.runtime</groupId>
-			<artifactId>mule-module-artifact-activation</artifactId>
-			<version>4.5.0-20220523</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/com.mulesoft.anypoint/mule-module-autodiscovery -->
-		<dependency>
-			<groupId>com.mulesoft.anypoint</groupId>
-			<artifactId>mule-module-autodiscovery</artifactId>
-			<version>4.5.0-20220622</version>
-			<scope>provided</scope>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/com.mulesoft.licm/licm -->
-		<dependency>
-			<groupId>com.mulesoft.licm</groupId>
-			<artifactId>licm</artifactId>
-			<version>1.1.5</version>
-			<scope>provided</scope>
-		</dependency>
 
 	</dependencies>
 

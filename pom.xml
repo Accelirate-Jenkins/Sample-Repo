@@ -87,7 +87,7 @@
 		<dependency>
 			<groupId>com.mulesoft.licm</groupId>
 			<artifactId>licm</artifactId>
-			<version>1.1.4</version>
+			<version>1.1.5</version>
 			<scope>provided</scope>
 		</dependency>
 

@@ -16,7 +16,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
 		<app.runtime>4.4.0</app.runtime> <!-- 4.4.0-20221026 -->
-		<mule.maven.plugin.version>3.8.1</mule.maven.plugin.version>
+		<mule.maven.plugin.version>3.8.0</mule.maven.plugin.version>
 	</properties>
 
 	<build>
@@ -78,12 +78,12 @@
 			<url>https://repository.mulesoft.org/releases/</url>
 			<layout>default</layout>
 		</repository>
-		<repository>
+<!-- 		<repository>
 			<id>mulesoft-nexus</id>
 			<name>MuleSoft Nexus Content Repository</name>
 			<url>https://repository.mulesoft.org/nexus/content/repositories/public/</url>
 			<layout>default</layout>
-		</repository>
+		</repository> -->
 	</repositories>
 
 	<pluginRepositories>

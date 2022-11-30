@@ -79,12 +79,12 @@
 			<url>https://repository.mulesoft.org/releases/</url>
 			<layout>default</layout>
 		</repository>
-<!-- 		<repository>
+		<repository>
 			<id>mulesoft-nexus</id>
 			<name>MuleSoft Nexus Content Repository</name>
 			<url>https://repository.mulesoft.org/nexus/content/repositories/public/</url>
 			<layout>default</layout>
-		</repository> -->
+		</repository>
 	</repositories>
 
 	<pluginRepositories>

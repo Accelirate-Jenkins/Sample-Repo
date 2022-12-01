@@ -11,6 +11,9 @@ pipeline {
                 ANYPOINT_CREDENTIALS = credentials('anypoint.credentials')
             }
             steps {
+				echo 'My credentials'
+				echo "${ANYPOINT_CREDENTIALS_USR}"
+				echo "${ANYPOINT_CREDENTIALS_PSW}"
                 bat 'mvn clean package deploy -X -DmuleDeploy -DskipTests \
 				-Dmule.version=4.4.0 \
 				-Danypoint.username=${ANYPOINT_CREDENTIALS_USR} \

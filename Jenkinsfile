@@ -15,9 +15,9 @@ pipeline {
 				-Dmule.version=4.4.0 \
 				-Danypoint.username=${ANYPOINT_CREDENTIALS_USR} \
 				-Danypoint.password=${ANYPOINT_CREDENTIALS_PSW} \
-				-Denv=Sandbox \
-				-Dappname=helloworld \
-				-Dbusiness=Accelirate \
+				-Denv=Dev \
+				-Dappname=helloworld-anoma \
+				-Dbusiness=Eshia Solutions Pvt. Ltd. \
 				-DvCore=Micro \
 				-Dworkers=1 \
 				-DaltDeploymentRepository=myinternalrepo::default::file:///C:/snapshots' 

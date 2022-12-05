@@ -8,12 +8,7 @@ pipeline {
         }
         stage('Deploy Application') {
             environment {
-<<<<<<< HEAD
                 ANYPOINT_CREDENTIALS = credentials('anypoint.credentials')
-=======
-                ANYPOINT_CREDENTIALS = credentials('anypoint.platform.credentials')
-				BUSINESS = "Eshia Solutions Pvt. Ltd."
->>>>>>> 5b2532d (added environment variable business)
             }
             steps {
 				echo 'My credentials'

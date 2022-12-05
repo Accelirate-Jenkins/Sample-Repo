@@ -5,19 +5,18 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.mycompany</groupId>
-	<artifactId>helloworld</artifactId>
+	<artifactId>helloworld-anoma</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>mule-application</packaging>
 
-	<name>helloworld</name>
+	<name>helloworld-anoma</name>
 
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
-		<app.runtime>4.4.0-20221026</app.runtime>
-		<mule.maven.plugin.version>3.8.0</mule.maven.plugin.version>
-	</properties>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+      <app.runtime>4.4.0</app.runtime>
+      <mule.maven.plugin.version>3.3.5</mule.maven.plugin.version>
+  </properties>
 
 	<build>
 		<plugins>
@@ -62,33 +61,64 @@
 			<version>1.7.2</version>
 			<classifier>mule-plugin</classifier>
 		</dependency>
+
 	</dependencies>
 
 	<repositories>
-		<repository>
-			<id>anypoint-exchange-v3</id>
-			<name>Anypoint Exchange</name>
-			<url>https://maven.anypoint.mulesoft.com/api/v3/maven</url>
-			<layout>default</layout>
-		</repository>
-		<repository>
-			<id>mulesoft-releases</id>
-			<name>MuleSoft Releases Repository</name>
-			<url>https://repository.mulesoft.org/releases/</url>
-			<layout>default</layout>
-		</repository>
-	</repositories>
+  <repository>
+    <id>anypoint-exchange-v3</id>
+    <name>Anypoint Exchange</name>
+    <url>https://maven.anypoint.mulesoft.com/api/v3/maven</url>
+    <layout>default</layout>
+  </repository>
+  <repository>
+    <id>mulesoft-releases</id>
+    <name>MuleSoft Releases Repository</name>
+    <url>https://repository.mulesoft.org/releases/</url>
+    <layout>default</layout>
+  </repository>
+  <!-- Replace ORGANIZATION_ID -->
+  <repository>
+	<id>PrivateExchangeRepository</id>
+	<name>Private Exchange repository</name>
+    <url>https://maven.anypoint.mulesoft.com/api/v3/organizations/2bdf8907-3f36-41e5-9b95-4f7650c531c1/maven</url>
+	<layout>default</layout>
+  </repository>
+  <repository>
+	<id>MuleRepository</id>
+	<name>MuleRepository</name>
+    <url>https://repository.mulesoft.org/nexus-ee/content/repositories/releases-ee/</url>
+	<layout>default</layout>
+  </repository>
+</repositories>
 
-	<pluginRepositories>
-		<pluginRepository>
-			<id>mulesoft-releases</id>
-			<name>MuleSoft Releases Repository</name>
-			<layout>default</layout>
-			<url>https://repository.mulesoft.org/releases/</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</pluginRepository>
-	</pluginRepositories>
+<pluginRepositories>
+    <pluginRepository>
+        <id>mulesoft-releases</id>
+        <name>MuleSoft Releases Repository</name>
+        <layout>default</layout>
+        <url>https://repository.mulesoft.org/releases/</url>
+        <snapshots>
+            <enabled>false</enabled>
+        </snapshots>
+    </pluginRepository>
+	<pluginRepository>
+		<id>MuleRepository</id>
+	<name>MuleRepository</name>
+    <url>https://repository.mulesoft.org/nexus-ee/content/repositories/releases-ee/</url>
+	<layout>default</layout>
+	</pluginRepository>
+	
+</pluginRepositories>
+
+<distributionManagement>
+    <!-- Replace ORGANIZATION_ID -->
+    <repository>
+        <id>PrivateExchangeRepository</id>
+        <name>Private Exchange repository</name>
+        <url>https://maven.anypoint.mulesoft.com/api/v3/organizations/2bdf8907-3f36-41e5-9b95-4f7650c531c1/maven</url>
+        <layout>default</layout>
+     </repository>
+</distributionManagement>
 
 </project>

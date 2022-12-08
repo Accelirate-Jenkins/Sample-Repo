@@ -10,9 +10,31 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 	</http:listener-config>
 	<flow name="helloworldFlow" doc:id="8239319c-06ac-403b-ab4b-b6b0fc69eb25" >
 		<http:listener doc:name="Listener" doc:id="076ec15d-df0c-406b-b2d7-5a894238bc28" config-ref="HTTP_Listener_config" path="/hello"/>
-		<ee:transform doc:name="Transform Message" doc:id="dc574a8e-6354-4c36-a530-8379e44a6d40" >
-			<ee:message >
-				<ee:set-payload ><![CDATA[%dw 2.0
+		<choice doc:name="Choice" doc:id="98db9edc-52b4-4ba7-9c69-089ba59224ce" >
+			<when expression='#[attributes.queryParams.name matches("[a-zA-Z]+")]'>
+				<ee:transform doc:name="Transform Message" doc:id="ed1807ee-793b-4979-9448-10f86c1ac898" >
+					<ee:message >
+						<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+var name = attributes.queryParams.name as String
+var time = now().hour
+fun greeting(time) = 
+    if (time < 12 and time > 5) "Good Morning!"
+    else if (time >= 12 and time < 17) "Good Afternoon!"
+    else "Good Evening!"
+---
+{
+	//message: "Hello " ++ name ++ "!"  
+	message: "Hello $(name)! $(greeting(time))"
+}]]></ee:set-payload>
+					</ee:message>
+				</ee:transform>
+				<logger level="INFO" doc:name="Logger" doc:id="e9375fed-5f3b-4b7c-b446-10fa8cda885f" message='"Executed expression"'/>
+			</when>
+			<otherwise >
+				<ee:transform doc:name="Transform Message" doc:id="dc574a8e-6354-4c36-a530-8379e44a6d40">
+			<ee:message>
+				<ee:set-payload><![CDATA[%dw 2.0
 output application/json
 ---
 {
@@ -20,5 +42,8 @@ output application/json
 }]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
+				<logger level="INFO" doc:name="Logger" doc:id="975de5b4-7e81-42d1-a857-fd2caec279bf" message='"Executed default"'/>
+			</otherwise>
+		</choice>
 	</flow>
 </mule>

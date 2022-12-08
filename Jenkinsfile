@@ -1,7 +1,7 @@
 pipeline {
     agent any
 	minimum_coverage = 70
-	newman_workspace = C:/Users/AnomaAmbade/Desktop/git-sample/test/newman-tests
+	def newman_workspace = "C:/Users/AnomaAmbade/Desktop/git-sample/test/newman-tests"
     stages{
         stage('Build Application') {
             steps {

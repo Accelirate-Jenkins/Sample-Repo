@@ -43,5 +43,6 @@ pipeline {
 				--reporters=cli,htmlextra \
 				--reporter-htmlextra-export ${newman_workspace}"
 			}
-    }
+		}
+	}
 }

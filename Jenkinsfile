@@ -40,7 +40,7 @@ pipeline {
         }
 		stage('Newman Tests') {
 			steps {
-				bat "nmp i -g newman newman-reporter-htmlextra"
+				bat "npm i -g newman newman-reporter-htmlextra"
 				bat "newman run ${newman_workspace}/demo-newman-test-collection.postman_collection.json \
 				--reporters=cli,htmlextra \
 				--reporter-htmlextra-export ${newman_workspace}"

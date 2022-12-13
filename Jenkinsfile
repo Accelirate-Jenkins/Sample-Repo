@@ -1,4 +1,5 @@
 def newman_workspace = "C:/Users/AnomaAmbade/Desktop/git-sample/test/newman-tests"
+def newman = "C:/Users/AnomaAmbade/AppData/Roaming/npm/newman"
 
 pipeline {
     agent any
@@ -41,7 +42,7 @@ pipeline {
 		stage('Newman Tests') {
 			steps {
 				bat "npm i newman newman-reporter-htmlextra"
-				bat "'C:\Users\AnomaAmbade\AppData\Roaming\npm\newman' run ${newman_workspace}/demo-newman-test-collection.postman_collection.json \
+				bat " ${newman} run ${newman_workspace}/demo-newman-test-collection.postman_collection.json \
 				--reporters=cli,htmlextra \
 				--reporter-htmlextra-export ${newman_workspace}"
 			}

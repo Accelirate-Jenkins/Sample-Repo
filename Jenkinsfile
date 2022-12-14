@@ -11,7 +11,7 @@ pipeline {
                 bat 'mvn -U clean install'
             }
         }
-		/*
+		
 		stage('MUnit Tests'){
 			steps {
 				bat "mvn clean test \
@@ -19,7 +19,7 @@ pipeline {
 				-DrequiredCoverage=${minimum_coverage}"
 			}
 		}
-		*/
+		
         stage('Deploy Application') {
             environment {
                 ANYPOINT_CREDENTIALS = credentials('anypoint.credentials')

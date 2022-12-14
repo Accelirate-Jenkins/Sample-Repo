@@ -1,9 +1,9 @@
 def newman_workspace = "C:/Users/AnomaAmbade/Desktop/git-sample/test/newman-tests"
 def newman = "C:/Users/AnomaAmbade/AppData/Roaming/npm/newman"
+minimum_coverage = 70
 
 pipeline {
     agent any
-	//minimum_coverage = 70
 	
     stages{
         stage('Build Application') {
@@ -14,7 +14,7 @@ pipeline {
 		/*
 		stage('MUnit Tests'){
 			steps {
-				bat "mvn -s clean test \
+				bat "mvn clean test \
 				-DskipVerification=true \
 				-DrequiredCoverage=${minimum_coverage}"
 			}

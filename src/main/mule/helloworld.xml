@@ -12,7 +12,7 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 		<http:listener doc:name="Listener" doc:id="076ec15d-df0c-406b-b2d7-5a894238bc28" config-ref="HTTP_Listener_config" path="/hello"/>
 		<choice doc:name="Choice" doc:id="98db9edc-52b4-4ba7-9c69-089ba59224ce" >
 			<when expression='#[attributes.queryParams.name matches("[a-zA-Z]+")]'>
-				<ee:transform doc:name="Transform Message" doc:id="ed1807ee-793b-4979-9448-10f86c1ac898" >
+				<ee:transform doc:name="Hello name" doc:id="ed1807ee-793b-4979-9448-10f86c1ac898" >
 					<ee:message >
 						<ee:set-payload ><![CDATA[%dw 2.0
 output application/json
@@ -32,7 +32,7 @@ fun greeting(time) =
 				<logger level="INFO" doc:name="Logger" doc:id="e9375fed-5f3b-4b7c-b446-10fa8cda885f" message='"Executed expression"'/>
 			</when>
 			<otherwise >
-				<ee:transform doc:name="Transform Message" doc:id="dc574a8e-6354-4c36-a530-8379e44a6d40">
+				<ee:transform doc:name="Hello world" doc:id="dc574a8e-6354-4c36-a530-8379e44a6d40">
 			<ee:message>
 				<ee:set-payload><![CDATA[%dw 2.0
 output application/json

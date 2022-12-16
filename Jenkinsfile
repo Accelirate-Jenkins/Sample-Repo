@@ -32,8 +32,8 @@ pipeline {
 				//bat 'mvn clean verify'
 				bat "set JAVA_HOME=$jdk"
 				bat "mvn sonar:sonar \
-				-DskipVerification\
-				-DskipTests\
+				-DskipVerification \
+				-DskipTests \
 				-Dsonar.projectKey=hello-world-sonar \
 				-Dsonar.host.url=http://localhost:9000 \
 				-Dsonar.login=${SONARQUBE_TOKEN}"

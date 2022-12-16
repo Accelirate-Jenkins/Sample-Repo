@@ -30,10 +30,7 @@ pipeline {
 			steps{
 			
 				bat 'mvn clean verify'
-				//bat "set JAVA_HOME=$jdk"
 				bat "mvn sonar:sonar \
-				//-DskipVerification=true \
-				//-DskipTests \
 				-Dsonar.projectKey=hello-world-sonar \
 				-Dsonar.host.url=http://localhost:9000 \
 				-Dsonar.login=${SONARQUBE_TOKEN}"
@@ -45,9 +42,6 @@ pipeline {
                 ANYPOINT_CREDENTIALS = credentials('anypoint.credentials')
             }
             steps {
-				//echo 'My credentials'
-				//echo "${ANYPOINT_CREDENTIALS_USR}"
-				//echo "${ANYPOINT_CREDENTIALS_PSW}"
                 bat "mvn clean package deploy -DmuleDeploy -DskipTests \
 				-Dmule.version=4.4.0 \
 				-Danypoint.username=${ANYPOINT_CREDENTIALS_USR} \

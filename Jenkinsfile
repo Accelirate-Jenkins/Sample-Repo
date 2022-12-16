@@ -30,7 +30,7 @@ pipeline {
 			steps{
 			
 				bat 'mvn clean verify'
-				bat "set JAVA_HOME=$jdk"
+				//bat "set JAVA_HOME=$jdk"
 				bat "mvn sonar:sonar \
 				//-DskipVerification=true \
 				//-DskipTests \

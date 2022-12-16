@@ -20,14 +20,29 @@ pipeline {
 			}
 		}
 		
+		stage('SonarQube Analysis'){
+			environment {
+				SONARQUBE_TOKEN = credentials('sonarqube.login.token')
+			}
+			steps{
+			
+				bat 'mvn clean verify'
+				bat 'set JAVA_HOME=C:\\Program Files\\Java\\jdk-11.0.16.1'
+				bat "mvn sonar:sonar \
+				-Dsonar.projectKey=hello-world-sonar \
+				-Dsonar.host.url=http://localhost:9000 \
+				-Dsonar.login=${SONARQUBE_TOKEN}"
+			}
+		}
+		
         stage('Deploy Application') {
             environment {
                 ANYPOINT_CREDENTIALS = credentials('anypoint.credentials')
             }
             steps {
-				echo 'My credentials'
-				echo "${ANYPOINT_CREDENTIALS_USR}"
-				echo "${ANYPOINT_CREDENTIALS_PSW}"
+				//echo 'My credentials'
+				//echo "${ANYPOINT_CREDENTIALS_USR}"
+				//echo "${ANYPOINT_CREDENTIALS_PSW}"
                 bat "mvn clean package deploy -DmuleDeploy -DskipTests \
 				-Dmule.version=4.4.0 \
 				-Danypoint.username=${ANYPOINT_CREDENTIALS_USR} \

@@ -21,14 +21,19 @@ pipeline {
 		}
 		
 		stage('SonarQube Analysis'){
+			tools{
+				jdk 'Java-jdk-11'
+			}
 			environment {
 				SONARQUBE_TOKEN = credentials('sonarqube.login.token')
 			}
 			steps{
 			
-				bat 'mvn clean verify'
-				bat 'set JAVA_HOME=C:\\Program Files\\Java\\jdk-11.0.16.1'
+				//bat 'mvn clean verify'
+				bat "set JAVA_HOME=$jdk"
 				bat "mvn sonar:sonar \
+				-DskipVerification\
+				-DskipTests\
 				-Dsonar.projectKey=hello-world-sonar \
 				-Dsonar.host.url=http://localhost:9000 \
 				-Dsonar.login=${SONARQUBE_TOKEN}"

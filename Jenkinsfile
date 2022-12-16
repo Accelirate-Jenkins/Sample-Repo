@@ -27,7 +27,7 @@ pipeline {
 			steps{
 			
 				bat 'mvn clean verify'
-				bat 'set JAVA_HOME=C:\Program Files\Java\jdk-11.0.16.1'
+				bat 'set JAVA_HOME=C:\\Program Files\\Java\\jdk-11.0.16.1'
 				bat "mvn sonar:sonar \
 				-Dsonar.projectKey=hello-world-sonar \
 				-Dsonar.host.url=http://localhost:9000 \

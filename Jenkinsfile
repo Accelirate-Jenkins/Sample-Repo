@@ -1,4 +1,4 @@
-def newman_workspace = "C:/Users/AnomaAmbade/Desktop/git-sample/test/newman-tests"
+def workspace = "C:/Users/AnomaAmbade/Desktop/git-sample/test"
 def newman = "C:/Users/AnomaAmbade/AppData/Roaming/npm/newman"
 minimum_coverage = 70
 
@@ -28,12 +28,20 @@ pipeline {
 				SONARQUBE_TOKEN = credentials('sonarqube.login.token')
 			}
 			steps{
-			
 				bat 'mvn clean verify'
 				bat "mvn sonar:sonar \
 				-Dsonar.projectKey=hello-world-sonar \
 				-Dsonar.host.url=http://localhost:9000 \
 				-Dsonar.login=${SONARQUBE_TOKEN}"
+			}
+		}
+		
+		stage(JMeter){
+			steps{
+				bat 'set OUT=jmeter.save.saveservice.output_format'
+				bat "set JMX=${workspace}/jmeter-tests/TestHelloWorldJenkins.jmx"
+				bat "set JTL=${workspace}/jmeter-tests/TestHelloWorldJenkins.report.jtl"
+				bat 'C:/apache-jmeter-5.5/bin/jmeter -j %OUT%=xml -n -t %JMX% -l %JTL%'
 			}
 		}
 		
@@ -56,9 +64,9 @@ pipeline {
 		stage('Newman Tests') {
 			steps {
 				bat "npm i -g newman newman-reporter-htmlextra"
-				bat " ${newman} run ${newman_workspace}/demo-newman-test-collection.postman_collection.json \
+				bat " ${newman} run ${workspace}/newman-tests/demo-newman-test-collection.postman_collection.json \
 				--reporters=cli,htmlextra \
-				--reporter-htmlextra-export ${newman_workspace}"
+				--reporter-htmlextra-export ${workspace}/newman_tests"
 			}
 		}
 	}

@@ -38,10 +38,10 @@ pipeline {
 		
 		stage(JMeter){
 			steps{
-				bat 'set OUT=jmeter.save.saveservice.output_format'
-				bat "set JMX=${workspace}/jmeter-tests/TestHelloWorldJenkins.jmx"
-				bat "set JTL=${workspace}/jmeter-tests/TestHelloWorldJenkins.report.jtl"
-				bat 'C:/apache-jmeter-5.5/bin/jmeter -j %OUT%=xml -n -t %JMX% -l %JTL%'
+				bat "C:/apache-jmeter-5.5/bin/jmeter -j \
+				jmeter.save.saveservice.output_format=xml \
+				-n -t ${workspace}/jmeter-tests/TestHelloWorldJenkins.jmx \
+				-l ${workspace}/jmeter-tests/TestHelloWorldJenkins.report.jtl"
 			}
 		}
 		
@@ -64,7 +64,7 @@ pipeline {
 		stage('Newman Tests') {
 			steps {
 				bat "npm i -g newman newman-reporter-htmlextra"
-				bat " ${newman} run ${workspace}/newman-tests/demo-newman-test-collection.postman_collection.json \
+				bat "${newman} run ${workspace}/newman-tests/demo-newman-test-collection.postman_collection.json \
 				--reporters=cli,htmlextra \
 				--reporter-htmlextra-export ${workspace}/newman_tests"
 			}

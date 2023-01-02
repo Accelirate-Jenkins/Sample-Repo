@@ -66,7 +66,7 @@ pipeline {
 				bat "npm i -g newman newman-reporter-htmlextra"
 				bat "${newman} run ${workspace}/newman-tests/demo-newman-test-collection.postman_collection.json \
 				--reporters=cli,htmlextra \
-				--reporter-htmlextra-export ${workspace}/newman_tests"
+				--reporter-htmlextra-export ${workspace}/newman_tests.html"
 			}
 		}
 	}
